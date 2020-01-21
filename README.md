@@ -1,11 +1,11 @@
 # bundler-audit
+[![Build Status](https://travis-ci.org/rubysec/bundler-audit.svg?branch=master)](https://travis-ci.org/rubysec/bundler-audit)
+[![Code Climate](https://codeclimate.com/github/rubysec/bundler-audit.svg)](https://codeclimate.com/github/rubysec/bundler-audit)
 
 * [Homepage](https://github.com/rubysec/bundler-audit#readme)
 * [Issues](https://github.com/rubysec/bundler-audit/issues)
 * [Documentation](http://rubydoc.info/gems/bundler-audit/frames)
 * [Email](mailto:postmodern.mod3 at gmail.com)
-* [![Build Status](https://travis-ci.org/rubysec/bundler-audit.svg)](https://travis-ci.org/rubysec/bundler-audit)
-* [![Code Climate](https://codeclimate.com/github/rubysec/bundler-audit.svg)](https://codeclimate.com/github/rubysec/bundler-audit)
 
 ## Description
 
@@ -23,7 +23,7 @@ Patch-level verification for [bundler].
 
 Audit a project's `Gemfile.lock`:
 
-    $ bundle audit
+    $ bundle-audit
     Name: actionpack
     Version: 3.2.10
     Advisory: OSVDB-91452
@@ -84,7 +84,7 @@ Audit a project's `Gemfile.lock`:
 
 Update the [ruby-advisory-db] that `bundle audit` uses:
 
-    $ bundle audit update
+    $ bundle-audit update
     Updating ruby-advisory-db ...
     remote: Counting objects: 44, done.
     remote: Compressing objects: 100% (24/24), done.
@@ -110,11 +110,16 @@ Update the [ruby-advisory-db] that `bundle audit` uses:
 
 Update the [ruby-advisory-db] and check `Gemfile.lock` (useful for CI runs):
 
-    $ bundle audit check --update
+    $ bundle-audit check --update
 
 Ignore specific advisories:
 
-    $ bundle audit check --ignore OSVDB-108664
+    $ bundle-audit check --ignore OSVDB-108664
+
+Write to an HTML file:
+
+    $ bundle-audit -o=tmp/audit.html
+
 
 Write to an HTML file:
 
@@ -144,12 +149,12 @@ task default: 'bundle:audit'
 ## Contributing
 
 1. Clone the repo
-1. `git submodule update --init` # To populate data dir.
+1. `git submodule update --init` # To populate data/ruby-advisory-db
 1. `bundle exec rake`
 
 ## License
 
-Copyright (c) 2013-2016 Hal Brodigan (postmodern.mod3 at gmail.com)
+Copyright (c) 2013-2019 Hal Brodigan (postmodern.mod3 at gmail.com)
 
 bundler-audit is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

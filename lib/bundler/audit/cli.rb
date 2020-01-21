@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2016 Hal Brodigan (postmodern.mod3 at gmail.com)
+# Copyright (c) 2013-2019 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
 # bundler-audit is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -153,9 +153,11 @@ module Bundler
         say "Advisory: ", :red
 
         if advisory.cve
-          say "CVE-#{advisory.cve}"
+          say advisory.cve_id
         elsif advisory.osvdb
-          say advisory.osvdb
+          say advisory.osvdb_id
+        elsif advisory.ghsa
+          say advisory.ghsa_id
         end
 
         say "Criticality: ", :red
